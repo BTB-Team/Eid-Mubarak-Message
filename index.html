@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BTB | عید سعید قربان مبارک</title>
+
+<meta name="description" content="پیام تبریکی عید قربان از طرف BTB">
+<meta name="theme-color" content="#071229">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Vazirmatn',sans-serif;
+}
+
+html,body{
+height:100%;
+}
+
+body{
+height: calc(var(--vh, 1vh) * 100);
+overflow:hidden;
+background:radial-gradient(circle at center,#0d2145 0%,#071229 40%,#020617 100%);
+}
+
+/* glow */
+body::before{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(255,220,120,.12),transparent);
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+filter:blur(80px);
+}
+
+/* container */
+.container{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+cursor:pointer;
+}
+
+/* intro */
+.intro{
+position:absolute;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+text-align:center;
+z-index:100;
+transition:1s;
+}
+
+.intro h1{
+font-size:clamp(28px,5vw,65px);
+line-height:1.8;
+animation:pulse 2s infinite;
+padding:20px;
+}
+
+.tap{
+margin-top:20px;
+opacity:.7;
+}
+
+@keyframes pulse{
+0%{opacity:.4}
+50%{opacity:1}
+100%{opacity:.4}
+}
+
+/* stars */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 8px white;
+animation:twinkle linear infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:.2;transform:translateY(0)}
+50%{opacity:1}
+100%{opacity:.2;transform:translateY(-20px)}
+}
+
+/* moon */
+.moonWrap{
+position:absolute;
+top:12%;
+left:50%;
+transform:translateX(-50%) scale(0);
+opacity:0;
+transition:0.8s ease;
+}
+
+.moon{
+width:160px;
+height:160px;
+border-radius:50%;
+background:#fff7b8;
+box-shadow:0 0 100px #ffd54f;
+position:relative;
+}
+
+.cut{
+position:absolute;
+right:-25px;
+top:0;
+width:135px;
+height:160px;
+border-radius:50%;
+background:#071229;
+}
+
+/* message */
+.message{
+position:absolute;
+bottom:10%;
+width:100%;
+text-align:center;
+color:white;
+padding:20px;
+opacity:0;
+transform:translateY(60px);
+transition:2s;
+}
+
+.message h2{
+font-size:clamp(28px,6vw,65px);
+margin-bottom:10px;
+}
+
+.message p{
+max-width:800px;
+margin:auto;
+line-height:2.2;
+opacity:.9;
+}
+
+/* greeting */
+.greeting{
+margin-top:10px;
+font-size:18px;
+color:#ffd54f;
+display:none;
+}
+
+/* form */
+form{
+width:min(500px,90%);
+margin:25px auto 0;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+input,textarea{
+padding:14px;
+border:none;
+border-radius:14px;
+background:rgba(255,255,255,.08);
+color:white;
+outline:none;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+button{
+padding:14px;
+border:none;
+border-radius:14px;
+background:#ffd54f;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* footer */
+.footer{
+position:absolute;
+bottom:12px;
+left:50%;
+transform:translateX(-50%);
+color:rgba(255,255,255,.4);
+font-size:13px;
+}
+
+/* states */
+.showMoon{opacity:1;transform:translateX(-50%) scale(1);}
+.showMsg{opacity:1;transform:translateY(0);}
+.hide{opacity:0;pointer-events:none;}
+
+/* ================= UX ================= */
+
+/* keyboard hide moon */
+.keyboard-active .moonWrap{
+opacity:0;
+transform:translateX(-50%) scale(0.8) translateY(-80px);
+filter:blur(10px);
+pointer-events:none;
+}
+
+/* smooth return */
+.moonWrap{
+transition:0.8s ease;
+}
+
+/* reduce distraction */
+.keyboard-active .intro{
+opacity:0.15;
+}
+
+.keyboard-active .message{
+bottom:5%;
+}
+
+/* mobile fix */
+@media (max-width:600px){
+.keyboard-active .message{
+bottom:2%;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="container">
+
+<div class="intro" id="intro">
+<h1>صبحی از جنس برکت و مهربانی آغاز شده است...</h1>
+<div class="tap">برای مشاهده پیام کلیک یا لمس کنید</div>
+</div>
+
+<div class="moonWrap" id="moon">
+<div class="moon"><div class="cut"></div></div>
+</div>
+
+<div class="message" id="msg">
+
+<h2>🌙✨ عید سعید قربان مبارک ✨🌙</h2>
+
+<p>
+شرکت BTB فرا رسیدن عید سعید قربان را
+به تمامی همکاران گرامی و مسلمانان جهان تبریک عرض می‌کند.<br><br>
+
+امیدواریم این عید، پیام‌آور آرامش، برکت و خوشبختی
+برای شما و عزیزانتان باشد 🌙
+</p>
+
+<div class="greeting" id="greeting"></div>
+
+<form id="btbForm">
+
+<input type="text" name="name" id="name" placeholder="نام شما" required>
+<textarea name="message" placeholder="پیام شما..." required></textarea>
+
+<button type="submit">ارسال پیام</button>
+
+</form>
+
+</div>
+
+<div class="footer">
+Developed by: Mirzaei
+</div>
+
+</div>
+
+<script>
+
+/* stars */
+for(let i=0;i<100;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+star.style.animationDuration=(2+Math.random()*5)+"s";
+document.body.appendChild(star);
+}
+
+/* intro */
+let started=false;
+
+const container=document.getElementById("container");
+const intro=document.getElementById("intro");
+const moon=document.getElementById("moon");
+const msg=document.getElementById("msg");
+const greeting=document.getElementById("greeting");
+
+container.onclick=()=>{
+if(started)return;
+started=true;
+
+intro.style.opacity="0";
+
+setTimeout(()=>intro.style.display="none",1000);
+
+setTimeout(()=>moon.classList.add("showMoon"),1200);
+setTimeout(()=>msg.classList.add("showMsg"),3500);
+};
+
+/* form + Formspree */
+document.getElementById("btbForm").addEventListener("submit",async(e)=>{
+e.preventDefault();
+
+const form=e.target;
+const data=new FormData(form);
+
+const name=data.get("name");
+
+await fetch("https://formspree.io/f/mqejgbgv",{
+method:"POST",
+body:data,
+headers:{Accept:"application/json"}
+});
+
+form.style.display="none";
+
+greeting.style.display="block";
+greeting.innerHTML=`🌙 عید مبارک <b>${name}</b> 🌙`;
+
+});
+
+/* mobile viewport fix */
+function setVH(){
+let vh=window.innerHeight*0.01;
+document.documentElement.style.setProperty('--vh',`${vh}px`);
+}
+setVH();
+window.addEventListener("resize",setVH);
+
+/* keyboard detection (real) */
+let initialHeight=window.innerHeight;
+
+function checkKeyboard(){
+if(window.innerHeight < initialHeight * 0.75){
+document.body.classList.add("keyboard-active");
+}else{
+document.body.classList.remove("keyboard-active");
+}
+}
+
+window.addEventListener("resize",()=>{
+setTimeout(checkKeyboard,50);
+});
+
+document.querySelectorAll("input,textarea").forEach(el=>{
+el.addEventListener("focus",checkKeyboard);
+el.addEventListener("blur",checkKeyboard);
+});
+
+</script>
+
+</body>
+</html>
